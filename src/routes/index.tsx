@@ -1,14 +1,36 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute('/')({ component: Home })
+export const Route = createFileRoute("/")({ component: Home });
 
 function Home() {
+  const mapFont = { e: "font-pixel", i: "font-pixel" };
+  const headerStr1 = "M{i}sh{i}n";
+  const headerStr2 = "L{e}arn{i}ng";
+
   return (
-    <div className="p-8">
-      <h1 className="text-4xl font-bold">Welcome to TanStack Start</h1>
-      <p className="mt-4 text-lg">
-        Edit <code>src/routes/index.tsx</code> to get started.
+    <div className="font-googlesans text-[12vw] h-full content-end justify ml-15">
+      <p>
+        {headerStr1
+          .split("")
+          .map((char) =>
+            Object.keys(mapFont).includes(char) ? (
+              <span className="font-pixel">{char}</span>
+            ) : (
+              char
+            ),
+          )}
+      </p>
+      <p className="-mt-25">
+        {headerStr2
+          .split("")
+          .map((char) =>
+            Object.keys(mapFont).includes(char) ? (
+              <span className="font-pixel">{char}</span>
+            ) : (
+              char
+            ),
+          )}
       </p>
     </div>
-  )
+  );
 }

@@ -9,38 +9,116 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as LlmRouteImport } from './routes/llm'
+import { Route as LiveRouteImport } from './routes/live'
+import { Route as DlRouteImport } from './routes/dl'
+import { Route as DevRouteImport } from './routes/dev'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as MlIndexRouteImport } from './routes/ml/index'
 
+const LlmRoute = LlmRouteImport.update({
+  id: '/llm',
+  path: '/llm',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LiveRoute = LiveRouteImport.update({
+  id: '/live',
+  path: '/live',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DlRoute = DlRouteImport.update({
+  id: '/dl',
+  path: '/dl',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DevRoute = DevRouteImport.update({
+  id: '/dev',
+  path: '/dev',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MlIndexRoute = MlIndexRouteImport.update({
+  id: '/ml/',
+  path: '/ml/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/dev': typeof DevRoute
+  '/dl': typeof DlRoute
+  '/live': typeof LiveRoute
+  '/llm': typeof LlmRoute
+  '/ml/': typeof MlIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/dev': typeof DevRoute
+  '/dl': typeof DlRoute
+  '/live': typeof LiveRoute
+  '/llm': typeof LlmRoute
+  '/ml': typeof MlIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/dev': typeof DevRoute
+  '/dl': typeof DlRoute
+  '/live': typeof LiveRoute
+  '/llm': typeof LlmRoute
+  '/ml/': typeof MlIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/dev' | '/dl' | '/live' | '/llm' | '/ml/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/dev' | '/dl' | '/live' | '/llm' | '/ml'
+  id: '__root__' | '/' | '/dev' | '/dl' | '/live' | '/llm' | '/ml/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DevRoute: typeof DevRoute
+  DlRoute: typeof DlRoute
+  LiveRoute: typeof LiveRoute
+  LlmRoute: typeof LlmRoute
+  MlIndexRoute: typeof MlIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/llm': {
+      id: '/llm'
+      path: '/llm'
+      fullPath: '/llm'
+      preLoaderRoute: typeof LlmRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/live': {
+      id: '/live'
+      path: '/live'
+      fullPath: '/live'
+      preLoaderRoute: typeof LiveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dl': {
+      id: '/dl'
+      path: '/dl'
+      fullPath: '/dl'
+      preLoaderRoute: typeof DlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dev': {
+      id: '/dev'
+      path: '/dev'
+      fullPath: '/dev'
+      preLoaderRoute: typeof DevRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +126,23 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ml/': {
+      id: '/ml/'
+      path: '/ml'
+      fullPath: '/ml/'
+      preLoaderRoute: typeof MlIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DevRoute: DevRoute,
+  DlRoute: DlRoute,
+  LiveRoute: LiveRoute,
+  LlmRoute: LlmRoute,
+  MlIndexRoute: MlIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
