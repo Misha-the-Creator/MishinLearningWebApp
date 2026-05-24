@@ -29,3 +29,7 @@ body {
   --font-pixel: pixels;
   --font-googlesans: googlesans;
 }
+
+.katex-display {
+  margin: 0.5rem 0 !important;
+}
