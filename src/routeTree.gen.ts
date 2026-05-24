@@ -15,6 +15,7 @@ import { Route as DlRouteImport } from './routes/dl'
 import { Route as DevRouteImport } from './routes/dev'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as MlIndexRouteImport } from './routes/ml/index'
+import { Route as MlArticleRouteImport } from './routes/ml/$article'
 
 const LlmRoute = LlmRouteImport.update({
   id: '/llm',
@@ -46,6 +47,11 @@ const MlIndexRoute = MlIndexRouteImport.update({
   path: '/ml/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MlArticleRoute = MlArticleRouteImport.update({
+  id: '/ml/$article',
+  path: '/ml/$article',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -53,6 +59,7 @@ export interface FileRoutesByFullPath {
   '/dl': typeof DlRoute
   '/live': typeof LiveRoute
   '/llm': typeof LlmRoute
+  '/ml/$article': typeof MlArticleRoute
   '/ml/': typeof MlIndexRoute
 }
 export interface FileRoutesByTo {
@@ -61,6 +68,7 @@ export interface FileRoutesByTo {
   '/dl': typeof DlRoute
   '/live': typeof LiveRoute
   '/llm': typeof LlmRoute
+  '/ml/$article': typeof MlArticleRoute
   '/ml': typeof MlIndexRoute
 }
 export interface FileRoutesById {
@@ -70,14 +78,23 @@ export interface FileRoutesById {
   '/dl': typeof DlRoute
   '/live': typeof LiveRoute
   '/llm': typeof LlmRoute
+  '/ml/$article': typeof MlArticleRoute
   '/ml/': typeof MlIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dev' | '/dl' | '/live' | '/llm' | '/ml/'
+  fullPaths: '/' | '/dev' | '/dl' | '/live' | '/llm' | '/ml/$article' | '/ml/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dev' | '/dl' | '/live' | '/llm' | '/ml'
-  id: '__root__' | '/' | '/dev' | '/dl' | '/live' | '/llm' | '/ml/'
+  to: '/' | '/dev' | '/dl' | '/live' | '/llm' | '/ml/$article' | '/ml'
+  id:
+    | '__root__'
+    | '/'
+    | '/dev'
+    | '/dl'
+    | '/live'
+    | '/llm'
+    | '/ml/$article'
+    | '/ml/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -86,6 +103,7 @@ export interface RootRouteChildren {
   DlRoute: typeof DlRoute
   LiveRoute: typeof LiveRoute
   LlmRoute: typeof LlmRoute
+  MlArticleRoute: typeof MlArticleRoute
   MlIndexRoute: typeof MlIndexRoute
 }
 
@@ -133,6 +151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MlIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ml/$article': {
+      id: '/ml/$article'
+      path: '/ml/$article'
+      fullPath: '/ml/$article'
+      preLoaderRoute: typeof MlArticleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -142,6 +167,7 @@ const rootRouteChildren: RootRouteChildren = {
   DlRoute: DlRoute,
   LiveRoute: LiveRoute,
   LlmRoute: LlmRoute,
+  MlArticleRoute: MlArticleRoute,
   MlIndexRoute: MlIndexRoute,
 }
 export const routeTree = rootRouteImport
