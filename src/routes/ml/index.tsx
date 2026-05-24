@@ -6,7 +6,7 @@ import Line from "../../../public/images/Line.png";
 import MLine from "../../../public/images/MLine.png";
 import "katex/dist/katex.min.css";
 import katex from "katex";
-import { image } from "motion/react-client";
+import { Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/ml/")({
   component: RouteComponent,
@@ -23,18 +23,21 @@ function RouteComponent() {
   const themesArray = [
     {
       theme: "Линейная регрессия",
+      route: "linear-regression",
       id: 1,
       image: Line,
       formula: "y = \\beta_0 + \\beta_1 x",
     },
     {
       theme: "Множественная линейная регрессия",
+      route: "multiple-linear-regression",
       id: 2,
       image: MLine,
       formula: "y = \\beta_0 + \\beta_1 x_1 + \\beta_2 x_2 + \\ldots",
     },
     {
-      theme: "Байесовская теория классификаци",
+      theme: "Байесовская теория классификации",
+      route: "bayesian-clasification-theory",
       id: 3,
       image: Bayes,
       formula: "P(A|B) = \\frac{P(B|A)\\cdot P(A)}{P(B)}",
@@ -51,7 +54,9 @@ function RouteComponent() {
           onMouseEnter={() => setIsHovered(elem)}
           onMouseLeave={() => setIsHovered(null)}
         >
-          {elem.theme}
+          <Link to={`/ml/$article`} params={{ article: elem.route }}>
+            {elem.theme}
+          </Link>
         </motion.button>
       ))}
       {isHovered && (
@@ -60,13 +65,15 @@ function RouteComponent() {
             src={isHovered.image}
             alt={isHovered.theme}
             className="absolute top-0 left-20 w-60 border"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, filter: "blur(2px)" }}
+            animate={{ opacity: 1, filter: "blur(0px)" }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
           />
           <motion.div
             className="absolute top-100 right-20 text-xl"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, filter: "blur(2px)" }}
+            animate={{ opacity: 1, filter: "blur(0px)" }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
             dangerouslySetInnerHTML={{
               __html: katex.renderToString(isHovered.formula, {
                 throwOnError: false,
