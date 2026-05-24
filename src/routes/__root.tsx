@@ -15,7 +15,7 @@ function RootComponent() {
   console.log("Я ререндурюсь");
   return (
     <>
-      <div className="bg-gray-200 dark:bg-black dark:text-white grid grid-rows-[auto_1fr] h-screen">
+      <div className="bg-gray-200 dark:bg-black dark:text-white grid grid-rows-[auto_1fr] min-h-screen">
         <div className="flex flex-row font-googlesans pt-3">
           <LogoML />
           <NavigationBar />
