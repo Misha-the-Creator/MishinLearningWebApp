@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 function NavigationBar() {
   return (
     <nav className="nav flex flex-row justify-center-safe mx-auto">
-      <Link to="/ml/">Машинное обучение</Link>
+      <Link to="/ml">Машинное обучение</Link>
       <span className="mx-2">|</span>
       <Link to="/dl">Глубокое обучение</Link>
       <span className="mx-2">|</span>
