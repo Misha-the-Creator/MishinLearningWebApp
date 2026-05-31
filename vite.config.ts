@@ -1,22 +1,20 @@
 import { defineConfig } from "vite";
 import { devtools } from "@tanstack/devtools-vite";
+import viteReact from "@vitejs/plugin-react";
 import mdx from "@mdx-js/rollup";
 import { tanstackRouter } from "@tanstack/router-plugin/vite";
-
-import viteReact from "@vitejs/plugin-react";
+import remarkFrontmatter from "remark-frontmatter";
 import tailwindcss from "@tailwindcss/vite";
 
-const config = defineConfig({
+export default defineConfig({
   resolve: { tsconfigPaths: true },
   plugins: [
-    devtools(),
-    tailwindcss(),
-    mdx(),
     tanstackRouter({ target: "react", autoCodeSplitting: true }),
     viteReact(),
+    mdx({
+      remarkPlugins: [remarkFrontmatter],
+    }),
+    devtools(),
+    tailwindcss(),
   ],
 });
-
-assetsInclude: ["**/*.md"];
-
-export default config;

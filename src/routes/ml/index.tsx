@@ -54,7 +54,7 @@ function RouteComponent() {
           onMouseEnter={() => setIsHovered(elem)}
           onMouseLeave={() => setIsHovered(null)}
         >
-          <Link to={`/ml/$article`} params={{ article: elem.route }}>
+          <Link to={`/ml/$route`} params={{ route: elem.route }}>
             {elem.theme}
           </Link>
         </motion.button>

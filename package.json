@@ -12,10 +12,12 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@mdx-js/mdx": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
     "@mdx-js/rollup": "^3.1.1",
     "@tailwindcss/vite": "^4.1.18",
     "@tanstack/react-devtools": "latest",
+    "@tanstack/react-query": "^5.100.14",
     "@tanstack/react-router": "latest",
     "@tanstack/react-router-devtools": "latest",
     "@tanstack/router-plugin": "^1.132.0",
@@ -29,7 +31,9 @@
     "react-latex": "^2.0.0",
     "react-markdown": "^10.1.0",
     "rehype-katex": "^7.0.1",
+    "remark-frontmatter": "^5.0.0",
     "remark-math": "^6.0.0",
+    "remark-mdx-frontmatter": "^5.2.0",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {

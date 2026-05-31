@@ -1,4 +1,3 @@
-// LaTeX.tsx
 import { useEffect, useRef } from "react";
 import katex from "katex";
 import "katex/dist/katex.min.css";
@@ -22,5 +21,3 @@ export function LaTeX({ expression, block = false }: LaTeXProps) {
 
   return <span ref={ref} />;
 }
-
-export default LaTeX;

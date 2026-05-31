@@ -1,6 +1,4 @@
-import { Outlet, createRootRoute, Link } from "@tanstack/react-router";
-import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
-import { TanStackDevtools } from "@tanstack/react-devtools";
+import { Outlet, createRootRoute } from "@tanstack/react-router";
 import LogoML from "#/components/LogoML";
 import NavigationBar from "#/components/NavigationBar";
 import About from "#/components/About";
@@ -12,7 +10,6 @@ export const Route = createRootRoute({
 });
 
 function RootComponent() {
-  console.log("Я ререндурюсь");
   return (
     <>
       <div className="bg-gray-200 dark:bg-black dark:text-white grid grid-rows-[auto_1fr] min-h-screen">
@@ -22,17 +19,6 @@ function RootComponent() {
           <About />
         </div>
         <Outlet />
-        {/* <TanStackDevtools
-          config={{
-            position: "bottom-right",
-          }}
-          plugins={[
-            {
-              name: "TanStack Router",
-              render: <TanStackRouterDevtoolsPanel />,
-            },
-          ]}
-        /> */}
       </div>
     </>
   );
