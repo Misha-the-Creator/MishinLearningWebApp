@@ -16,7 +16,8 @@ function RouteComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <motion.div
-        className="mt-10 mx-40 px-10 pt-10 font-googlesans border-black border rounded-4xl text-xl dark:border-white"
+        lang="ru"
+        className="mt-10 mx-5 px-4 pt-10 font-googlesans hyphens-auto border-black border rounded-4xl text-base text-justify dark:border-white"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, ease: "easeOut" }}
