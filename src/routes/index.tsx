@@ -15,10 +15,10 @@ function Home() {
             <span key={char} className="font-pixel">
               {char}
             </span>
-            ) : (
-              char
-            ),
-          )}
+          ) : (
+            char
+          ),
+        )}
       </p>
       <p className="-mt-10">
         {headerStr2.split("").map((char) =>
@@ -26,10 +26,10 @@ function Home() {
             <span key={char} className="font-pixel">
               {char}
             </span>
-            ) : (
-              char
-            ),
-          )}
+          ) : (
+            char
+          ),
+        )}
       </p>
     </div>
   );
