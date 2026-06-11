@@ -50,7 +50,7 @@ function RouteComponent() {
         <motion.button
           whileHover={{ filter: "blur(2px)" }}
           key={elem.id}
-          className="uppercase mb-3 mx-auto w-auto"
+          className="uppercase mb-10 mx-auto w-auto"
           onMouseEnter={() => setIsHovered(elem)}
           onMouseLeave={() => setIsHovered(null)}
         >
