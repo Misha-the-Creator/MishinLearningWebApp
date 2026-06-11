@@ -1,7 +1,6 @@
 import { Outlet, createRootRoute } from "@tanstack/react-router";
 import LogoML from "#/components/LogoML";
 import NavigationBar from "#/components/NavigationBar";
-import About from "#/components/About";
 
 import "../styles.css";
 
