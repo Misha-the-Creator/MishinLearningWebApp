@@ -8,7 +8,7 @@ function Home() {
   const headerStr2 = "Zue{v}";
 
   return (
-    <div className="font-googlesans text-[12vw] h-full content-end justify ml-15">
+    <div className="font-googlesans text-[20vw] lg:text-[10vw] content-end justify ml-10 -mt-10">
       <p>
         {headerStr1
           .split("")
