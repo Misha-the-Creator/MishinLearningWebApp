@@ -1,4 +1,3 @@
-// ArticleImage.tsx
 interface ArticleImageProps {
   index: number;
   images: {
