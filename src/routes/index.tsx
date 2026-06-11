@@ -3,9 +3,9 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/")({ component: Home });
 
 function Home() {
-  const mapFont = { e: "font-pixel", i: "font-pixel" };
-  const headerStr1 = "M{i}sh{i}n";
-  const headerStr2 = "L{e}arn{i}ng";
+  const mapFont = ["i", "v"];
+  const headerStr1 = "M{i}sha";
+  const headerStr2 = "Zue{v}";
 
   return (
     <div className="font-googlesans text-[12vw] h-full content-end justify ml-15">
