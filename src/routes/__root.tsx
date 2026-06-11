@@ -11,6 +11,8 @@ export const Route = createRootRoute({
 });
 
 function RootComponent() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <>
       <div className="bg-gray-200 dark:bg-black dark:text-white grid grid-rows-[auto_1fr] min-h-screen">
