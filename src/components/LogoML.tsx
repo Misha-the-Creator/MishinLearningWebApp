@@ -5,7 +5,7 @@ function LogoML() {
   return (
     <header className="ml-5 text-2xl">
       <Link to="/">
-        M<span className="font-pixel">/</span>L
+        M<span className="font-pixel">/</span>Z
       </Link>
     </header>
   );
