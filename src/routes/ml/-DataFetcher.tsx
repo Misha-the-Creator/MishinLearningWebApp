@@ -1,5 +1,6 @@
 import "katex/dist/katex.min.css";
 import { LaTeX } from "./-LaTeX";
+import { JSXGraph } from "./-JSXgraph";
 import { ArticleImage } from "./-ArticleImage";
 import * as runtime from "react/jsx-runtime";
 import { useQuery } from "@tanstack/react-query";
@@ -44,6 +45,7 @@ function DataFetcher(props: any) {
         ArticleImage: ({ index }: { index: number }) => (
           <ArticleImage index={index} images={images} />
         ),
+        JSXGraph,
         h1: ({ children }) => (
           <h2 className="text-4xl font-semibold text-center mb-20">
             {children}
