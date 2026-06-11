@@ -24,8 +24,6 @@ function RouteComponent() {
       >
         <DataFetcher route={route} />
       </motion.div>
-      {/* <div className="mt-10 mx-40 px-10 pt-10 font-googlesans border-black border rounded-4xl text-xl dark:border-white"> */}
-      {/* </div> */}
     </QueryClientProvider>
   );
 }
