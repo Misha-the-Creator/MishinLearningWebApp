@@ -45,7 +45,7 @@ function RouteComponent() {
   ];
 
   return (
-    <div className="relative flex flex-col mt-20 font-googlesans text-4xl font-bold">
+    <div className="relative flex flex-col mt-20 font-googlesans text-3xl font-bold">
       {themesArray.map((elem) => (
         <motion.button
           whileHover={{ filter: "blur(2px)" }}
