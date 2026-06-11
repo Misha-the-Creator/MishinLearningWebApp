@@ -3,6 +3,8 @@ import LogoML from "#/components/LogoML";
 import NavigationBar from "#/components/NavigationBar";
 
 import "../styles.css";
+import { useState } from "react";
+import NavBarIcon from "#/components/NavBarIcon";
 
 export const Route = createRootRoute({
   component: RootComponent,
